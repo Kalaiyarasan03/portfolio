@@ -19,3 +19,14 @@ This is a **multi-page Django web application** designed to showcase a portfolio
 
 ## Project Structure
 
+portfolio_multipage/
+├── manage.py
+├── db.sqlite3
+├── requirements.txt
+├── main/ # Core Django app for pages and views
+├── chatbot/ # App handling chatbot functionality
+├── portfolio_site/ # Django project folder (settings, urls, wsgi)
+├── static/ # CSS, JS, and images
+├── templates/ # HTML templates
+└── venv/ # Python virtual environment (excluded from Git)
+
