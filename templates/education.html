@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Education - My Academic Journey{% endblock %}
+
+{% block meta_description %}Details of my academic background, including degrees, institutions, and key coursework that have shaped my technical and creative skills.{% endblock %}
+
+{% block meta_keywords %}education, academic background, degree, computer science, university, coursework, portfolio{% endblock %}
+
+
+{% block extra_css %}
+<style>
+  .education-hero {
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    background: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.1), transparent 40%);
+  }
+
+  .timeline-section {
+    padding: 0 2rem 6rem;
+  }
+  
+  /* --- Vertical Timeline --- */
+  .timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* The central line of the timeline */
+  .timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: var(--border-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    border-radius: 2px;
+  }
+
+  .timeline-item {
+    padding: 1rem 3rem;
+    position: relative;
+    width: 50%;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+  }
+  
+  .timeline-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Position items on the left */
+  .timeline-item:nth-child(odd) {
+    left: 0;
+  }
+  
+  /* Position items on the right */
+  .timeline-item:nth-child(even) {
+    left: 50%;
+  }
+
+  /* The date marker on the central line */
+  .timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: -12px;
+    background-color: var(--background-secondary);
+    border: 4px solid var(--primary-color);
+    top: 30px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  .timeline-item:nth-child(even)::after {
+    left: -12px;
+  }
+
+  .timeline-content {
+    padding: 2rem;
+    position: relative;
+  }
+  
+  .timeline-date {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-light);
+    margin-bottom: 0.5rem;
+    display: inline-block;
+  }
+  
+  .timeline-degree {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+  
+  .timeline-institution {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+  
+  .timeline-description {
+    color: var(--text-muted);
+    line-height: 1.6;
+    padding-left: 1.2rem;
+  }
+
+  /* --- Responsive Adjustments for Mobile --- */
+  @media screen and (max-width: 768px) {
+    .timeline::after {
+      left: 20px;
+    }
+    
+    .timeline-item {
+      width: 100%;
+      padding-left: 50px;
+      padding-right: 15px;
+    }
+    
+    /* All items on one side */
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+      left: 0;
+    }
+    
+    /* Position the date markers on the left line */
+    .timeline-item::after {
+      left: 8px;
+    }
+  }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<main>
+  <section class="education-hero">
+    <h1 class="section-title fade-in">Education & Learning</h1>
+    <p class="section-subtitle fade-in" style="animation-delay: 0.2s;">
+      My academic journey and commitment to continuous learning in the ever-evolving world of technology.
+    </p>
+  </section>
+
+  <section class="timeline-section">
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-content glass-card">
+          <span class="timeline-date">Aug 2021 - May 2025</span>
+          <h3 class="timeline-degree">Bachelor of Engineering in Computer Science</h3>
+          <h4 class="timeline-institution">Sri Ramakrishna Institute of Technology, Coimbatore</h4>
+          <ul class="timeline-description">
+            <li>Current CGPA: 7.9</li>
+            <li>Specializing in full-stack web applications and data-driven problem-solving.</li>
+            <li>Key coursework: Data Structures, Algorithms, Web Development, and Database Management Systems.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content glass-card">
+          <span class="timeline-date">2021 Passout</span>
+          <h3 class="timeline-degree">Higher Secondary Education — Computer Science</h3>
+          <h4 class="timeline-institution">SRV Matriculation Higher Secondary School, Tiruchirappalli</h4>
+          <ul class="timeline-description">
+            <li>Completed 12th-grade curriculum with a primary focus on Computer Science.</li>
+            <li>Developed a strong foundation in programming logic and mathematical principles.</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="timeline-item">
+        <div class="timeline-content glass-card">
+          <span class="timeline-date">2019 Passout</span>
+          <h3 class="timeline-degree">Secondary School Leaving Certificate</h3>
+          <h4 class="timeline-institution">Amala Annai Matriculation Higher Secondary School,ponnamaravathy</h4>
+          <ul class="timeline-description">
+            <li>Completed 10th-grade curriculum with a focus on core Science and Mathematics subjects.</li>
+      <li>Established a strong foundation in analytical skills and fundamental academic principles.</li>
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+  </section>
+</main>
+{% endblock %}
+
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const timelineItems = document.querySelectorAll('.timeline-item');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2 // Trigger when 20% of the item is visible
+  });
+
+  timelineItems.forEach(item => {
+    observer.observe(item);
+  });
+});
+</script>
+{% endblock %}

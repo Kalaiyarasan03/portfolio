@@ -1,0 +1,216 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Skills - My Technical Expertise{% endblock %}
+
+{% block meta_description %}A detailed overview of my technical skills, including frontend and backend technologies, design tools, and development methodologies that I use to build modern web applications.{% endblock %}
+
+{% block meta_keywords %}technical skills, frontend, backend, full-stack, javascript, python, react, django, UI/UX tools, portfolio{% endblock %}
+
+
+{% block extra_css %}
+<style>
+  .skills-hero {
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    background: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.1), transparent 40%);
+  }
+
+  .skills-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .skill-category-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 3rem;
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+  }
+
+  .skill-category-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-light);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+  }
+  
+  .skill-category-title .icon {
+    font-size: 2.5rem;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .skill-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+  
+  .skill-level {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .proficiency-bar-outer {
+    width: 100%;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .proficiency-bar-inner {
+    height: 100%;
+    width: 0; /* Animated by JS */
+    background: var(--gradient-primary);
+    border-radius: 4px;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .skills-hero {
+      padding: 4rem 1rem 3rem;
+    }
+    .skills-container {
+      padding: 0 1rem 4rem;
+    }
+    .skill-category-card {
+      padding: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    .skill-category-title {
+        font-size: 1.5rem;
+    }
+    .skill-category-title .icon {
+        font-size: 2rem;
+    }
+  }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<main>
+  <section class="skills-hero">
+    <h1 class="section-title fade-in">Technical Skills</h1>
+    <p class="section-subtitle fade-in" style="animation-delay: 0.2s;">
+      A comprehensive overview of the technologies, tools, and platforms I use to build modern, high-performance web applications.
+    </p>
+  </section>
+
+  <section class="skills-container">
+
+    <div class="skill-category-card glass-card">
+      <h2 class="skill-category-title"><span class="icon">💻</span> Programming & Frontend</h2>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <div class="skill-header"><span>HTML</span><span class="skill-level">Advanced</span></div>
+          <div class="proficiency-bar-outer"><div class="proficiency-bar-inner" data-level="90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>CSS</span><span class="skill-level">Advanced</span></div>
+          <div class="proficiency-bar-outer"><div class="proficiency-bar-inner" data-level="85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>JavaScript</span><span class="skill-level">Basic</span></div>
+          <div class="proficiency-bar-outer"><div class="proficiency-bar-inner" data-level="60%"></div></div>
+        </div>
+         <div class="skill-item">
+          <div class="skill-header"><span>Python</span><span class="skill-level">Advanced</span></div>
+          <div class="proficiency-bar-outer"><div class="proficiency-bar-inner" data-level="85%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-category-card glass-card">
+      <h2 class="skill-category-title"><span class="icon">🚀</span> Frameworks</h2>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <div class="skill-header"><span>Django</span><span class="skill-level">Advanced</span></div>
+          <div class="proficiency-bar-outer"><div class="proficiency-bar-inner" data-level="80%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>Bootstrap</span><span class="skill-level">Advanced</span></div>
+          <div class="proficiency-bar-outer"><div class="proficiency-bar-inner" data-level="80%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-category-card glass-card">
+      <h2 class="skill-category-title"><span class="icon">💾</span> Databases & Tools</h2>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <div class="skill-header"><span>MySQL</span><span class="skill-level">Basic</span></div>
+          <div class="proficiency-bar-outer"><div class="proficiency-bar-inner" data-level="65%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>Git & GitHub</span><span class="skill-level">Advanced</span></div>
+          <div class="proficiency-bar-outer"><div class="proficiency-bar-inner" data-level="90%"></div></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</main>
+{% endblock %}
+
+
+{% block extra_js %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const proficiencyBars = document.querySelectorAll('.proficiency-bar-inner');
+
+    const observerOptions = {
+      root: null, // relative to document viewport 
+      rootMargin: '0px',
+      threshold: 0.5 // 50% of item has to be visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const bar = entry.target;
+          const level = bar.getAttribute('data-level');
+          bar.style.width = level;
+          observer.unobserve(bar); // Stop observing after animation
+        }
+      });
+    }, observerOptions);
+
+    proficiencyBars.forEach(bar => {
+      observer.observe(bar);
+    });
+  });
+</script>
+{% endblock %}

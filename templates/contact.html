@@ -1,0 +1,250 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Contact Me - Let's Collaborate{% endblock %}
+
+{% block meta_description %}Get in touch with Kalaiyarasan Muthu Ramalingam to discuss your project, collaborate on an idea, or just say hello. I'm always open to new opportunities.{% endblock %}
+
+{% block meta_keywords %}contact, get in touch, collaborate, hire me, web developer contact, project inquiry{% endblock %}
+
+
+{% block extra_css %}
+<style>
+  .contact-hero {
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    background: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.1), transparent 40%);
+  }
+
+  .contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: flex-start;
+  }
+  
+  /* Left Column: Contact Info */
+  .contact-info h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-light);
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-info p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-details {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-details li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+  }
+  
+  .contact-details .icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .social-links a {
+    color: var(--text-secondary);
+    font-size: 1.8rem;
+    transition: var(--transition);
+    text-decoration: none;
+  }
+  
+  .social-links a:hover {
+    color: var(--primary-color);
+    transform: scale(1.1) translateY(-3px);
+  }
+  
+  /* Right Column: Contact Form */
+  .contact-form-wrapper {
+    padding: 3rem;
+  }
+  
+  .contact-form-wrapper h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem; /* Adjusted margin */
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: var(--transition);
+  }
+  
+  .form-input:focus,
+  .form-textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+  }
+  
+  .form-textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 1.2rem 2.8rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4);
+  }
+
+  /* Messages Styling */
+  .messages {
+      text-align: center;
+      padding-bottom: 1rem;
+      font-weight: 600;
+  }
+  .messages .success {
+      color: var(--success-color);
+  }
+  .messages .error {
+      color: var(--error-color);
+  }
+
+
+  /* Responsive Adjustments */
+  @media (max-width: 900px) {
+    .contact-container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .contact-info {
+      text-align: center;
+    }
+    .contact-details {
+      align-items: center;
+      justify-content: center;
+    }
+    .contact-details li {
+      justify-content: center;
+    }
+    .social-links {
+      justify-content: center;
+    }
+  }
+
+</style>
+{% endblock %}
+
+
+{% block content %}
+<main>
+  <section class="contact-hero">
+    <h1 class="section-title fade-in">Get In Touch</h1>
+    <p class="section-subtitle fade-in" style="animation-delay: 0.2s;">
+      Have a question, a project idea, or just want to connect? I'd love to hear from you.
+    </p>
+  </section>
+
+  <section class="contact-container">
+    
+    <div class="contact-info fade-in" style="animation-delay: 0.4s;">
+      <h3>Contact Information</h3>
+      <p>Fill out the form, and I'll get back to you as soon as possible. You can also reach me through the channels below.</p>
+      
+      <ul class="contact-details">
+        <li><span class="icon">✉️</span> kalaiyarasanrasantech@gmail.com</li>
+        <li><span class="icon">📞</span> (+91) 9443414323</li>
+        <li><span class="icon">📍</span> Trichy, Tamil Nadu, India</li>
+      </ul>
+      
+      <h3>Follow Me</h3>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/kalaiyarasan-m-r-95a693250/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a> 
+        <a href="https://github.com/Kalaiyarasan03" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+      </div>
+    </div>
+    
+    <div class="contact-form-wrapper glass-card fade-in" style="animation-delay: 0.6s;">
+      <h3>Send Me a Message</h3>
+      
+      {% if messages %}
+        <div class="messages">
+          {% for message in messages %}
+            <p class="{{ message.tags }}">{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <form id="contactForm" action="{% url 'send_email' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <input type="text" id="name" name="name" class="form-input" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" name="email" class="form-input" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <input type="text" id="subject" name="subject" class="form-input" placeholder="Subject" required>
+        </div>
+        <div class="form-group">
+          <textarea id="message" name="message" class="form-textarea" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+
+  </section>
+</main>
+{% endblock %}
+
+
+{% block extra_js %}
+<script>
+// The original JavaScript that showed an alert has been removed.
+// The form now submits directly to the Django backend URL,
+// and the success/error message is displayed via the Django messages framework.
+</script>
+{% endblock %}

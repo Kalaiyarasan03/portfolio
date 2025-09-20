@@ -1,0 +1,280 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Featured Projects{% endblock %}
+
+{% block extra_css %}
+<style>
+  /* Paste the same CSS from before here */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    color: #333;
+  }
+  .content-section {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .section-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+  }
+  .projects-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+  .project-card {
+    box-shadow: 0 4px 15px rgb(0 0 0 / 0.1);
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: var(--transition);
+    position: relative;
+  }
+  .project-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary-color);
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  }
+    .project-image {
+    height: 250px;
+    background: var(--gradient-secondary);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+  }
+
+  .project-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    opacity: 0.1;
+  }
+  .project-content {
+    padding: 1.5rem 2rem 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-title {
+    margin: 0 0 1rem;
+    font-size: 1.5rem;
+  }
+  .project-description {
+    flex-grow: 1;
+    margin-bottom: 1.2rem;
+    color: #555;
+  }
+  .project-tags {
+    margin-bottom: 1.5rem;
+  }
+  .project-tag {
+    display: inline-block;
+    background: #dbeafe;
+    color: #1e40af;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    margin-right: 0.5rem;
+    margin-bottom: 0.3rem;
+    user-select: none;
+  }
+  .project-link {
+    align-self: flex-start;
+    text-decoration: none;
+    color: #3b82f6;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+  .project-link:hover {
+    color: #1e40af;
+    text-decoration: underline;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="content-section">
+  <div class="section-header">
+    <h2 class="section-title">Projects</h2>
+    <p class="section-subtitle">
+      Explore some of my recent work that showcases creativity, technical expertise, and attention to detail.
+    </p>
+  </div>
+
+  <div class="projects-grid">
+
+    <article class="project-card">
+      <div class="project-image">🧑‍💻</div>
+      <div class="project-content">
+        <h3 class="project-title">PERSONAL PORTFOLIO WEBSITE</h3>
+        <p class="project-description">
+          Designed and developed a fully responsive personal portfolio website featuring interactive project galleries and contact forms, attracting over 500 unique visitors in the first month.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+          <span class="project-tag">JavaScript</span>
+          <span class="project-tag">Visual Studio Code</span>
+        </div>
+        <a href="{% url 'projects' %}" class="project-link">View Project →</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-image">👥</div>
+      <div class="project-content">
+        <h3 class="project-title">FACE DETECTION AND PEOPLE COUNTING</h3>
+        <p class="project-description">
+          Developed a real-time face detection and counting system using Python and OpenCV, with YOLOv8 integration for 95%+ accuracy. Processes live video feeds for crowd monitoring and occupancy analytics.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">OpenCV</span>
+          <span class="project-tag">YOLOv8</span>
+          <span class="project-tag">Computer Vision</span>
+        </div>
+        <a href="{% url 'projects' %}" class="project-link">View Project →</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-image">♻️</div>
+      <div class="project-content">
+        <h3 class="project-title">AUTOMATIC PLASTIC BOTTLE CRUSHING AND GRINDING MACHINE</h3>
+        <p class="project-description">
+          As Team Lead, I guided a 5-member team to design and build a fully automatic machine that crushes plastic bottles into chips and then grinds them into powder for recycling.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Team Lead</span>
+          <span class="project-tag">Automation</span>
+          <span class="project-tag">Hardware</span>
+          <span class="project-tag">Mechanical Design</span>
+        </div>
+        <a href="{% url 'projects' %}" class="project-link">View Project →</a>
+      </div>
+    </article>
+    
+    <article class="project-card">
+      <div class="project-image">🍔</div>
+      <div class="project-content">
+        <h3 class="project-title">Restaurant Web Application</h3>
+        <p class="project-description">
+          Built a responsive Restaurant Web Application using React.js, enabling users to view menus, place orders, and track delivery status with a dynamic UI and state management.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">React.js</span>
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">JavaScript</span>
+          <span class="project-tag">Frontend</span>
+        </div>
+        <a href="https://github.com/Kalaiyarasan03/Restaurant_web" class="project-link">View on GitHub →</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-image">📦</div>
+      <div class="project-content">
+        <h3 class="project-title">Warehouse Inventory Management</h3>
+        <p class="project-description">
+          A Django-based warehouse inventory management system for tracking product stock, income, and outgoing transactions.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Django</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">Backend</span>
+        </div>
+        <a href="https://github.com/Kalaiyarasan03/Warehouse-Inventory-Management" class="project-link">View on GitHub →</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-image">🔧</div>
+      <div class="project-content">
+        <h3 class="project-title">Hardware Management System</h3>
+        <p class="project-description">
+            A web-based system for tracking and managing hardware assets, built with a clean HTML frontend.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+          <span class="project-tag">Frontend</span>
+        </div>
+        <a href="https://github.com/Kalaiyarasan03/Hardware_management_system_hms" class="project-link">View on GitHub →</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-image">🌾</div>
+      <div class="project-content">
+        <h3 class="project-title">Agro-Management</h3>
+        <p class="project-description">
+          A Python-based application designed to assist with agricultural management tasks and data tracking.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Agriculture</span>
+          <span class="project-tag">Data</span>
+        </div>
+        <a href="https://github.com/Kalaiyarasan03/Agro-management" class="project-link">View on GitHub →</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-image">📊</div>
+      <div class="project-content">
+        <h3 class="project-title">Excel to SQL</h3>
+        <p class="project-description">
+          A Python script to automate the process of transferring data from Excel spreadsheets to a SQL database.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">ETL</span>
+          <span class="project-tag">SQL</span>
+          <span class="project-tag">Automation</span>
+        </div>
+        <a href="https://github.com/Kalaiyarasan03/Excel_to_sql" class="project-link">View on GitHub →</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-image">🔄</div>
+      <div class="project-content">
+        <h3 class="project-title">ETL Pipeline</h3>
+        <p class="project-description">
+          An ETL (Extract, Transform, Load) pipeline built with Python for processing and moving data between systems.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">ETL</span>
+          <span class="project-tag">Data Engineering</span>
+        </div>
+        <a href="https://github.com/Kalaiyarasan03/ETL" class="project-link">View on GitHub →</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+{% endblock %}
